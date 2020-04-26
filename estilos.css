@@ -1,0 +1,87 @@
+@media (min-width: 768px) {
+    .check-inicio {
+        position: absolute;
+        left: 39%;
+        right: 39%;
+        top: 20%;
+        bottom: 30%;
+    }
+    .form-control,
+    .btn {
+        display: inline !important;
+        width: auto !important;
+    }
+    .input-inicio {
+        padding: 10px auto;
+    }
+    .btn-crear {
+        margin-left: 10%;
+    }
+    .name-user {
+        margin-left: 7%;
+    }
+    .margin-compu {
+        margin-left: 4%;
+    }
+    .d-none-pc {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .check-inicio {
+        /* position: absolute; */
+        margin: 13% 10% auto 10%;
+    }
+    .boton-medio {
+        margin-top: 10px;
+        padding: 10px;
+    }
+    .d-none-celular {
+        display: none;
+    }
+}
+
+.board-user {
+    min-height: 560px;
+}
+
+.img-result {
+    width: 30px;
+    height: 30px;
+}
+
+.ver-tablero {
+    background: transparent;
+    color: black;
+    outline: none;
+    border: none;
+    border: 1px solid grey;
+    overflow: hidden !important;
+}
+
+.img-logo {
+    width: 200px;
+    height: 200px;
+}
+
+
+/* quita la marca de agua de 000webhost*/
+
+img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] {
+    display: none;
+}
+
+.input-inicio {
+    padding: 10px auto;
+    font-weight: 600;
+}
+
+.input-modal {
+    display: block !important;
+    width: 100% !important;
+}
+
+.brand-navbar {
+    margin-right: 20%;
+}

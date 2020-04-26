@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link class="icon" rel="icon" sizes="32x32" type="image/png" href="img/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="estilos.css" />
+
+    <title>Tablero Virtual</title>
+</head>
+
+<body id="body" class="body animated fadeIn">
+    <div id="prueba"></div>
+    <!-- seccion de inicio -->
+    <div id="seccion-main" class="d-none hla weee">
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light" style="opacity: 0.75;">
+            <a class="btn btn-light mr-3 float-left btn-crear" href="#" data-toggle="modal" data-target="#newuser">Crear usuario</a
+        >
+        <a
+          class="btn btn-light ml-3 float-right"
+          href="#"
+          data-toggle="modal"
+          data-target="#ingreso"
+          >Ingresar</a
+        >
+        <a class="navbar-brand ml-auto brand-navbar d-none-celular" href="#"
+          >Tablero Virtual</a
+        >
+      </nav>
+      <div class="container">
+        <div class="check-inicio">
+          <div class="d-block text-center">
+            <h2 class="mb-3">Tablero Virtual</h2>
+            <img src="img/logo.png" class="img-logo" alt="" />
+            <div id="error-pin" class="text-danger text-left mb-1"></div>
+          </div>
+          <div class="d-inline">
+            <input
+              id="pin-ingreso"
+              type="text"
+              class="form-control float-left input-inicio"
+              placeholder="Ingresa el codigo"
+            />
+            <input
+              disabled
+              type="button"
+              id="validar-pin"
+              value="Entrar"
+              class="btn btn-danger btn-block float-right boton-medio"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- ------------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+      <!-- modal de crear usuario -->
+      <div
+        class="modal fade"
+        id="newuser"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header py-2">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Crea tu usuario..
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="alerta-nuevo-usuario"></div>
+              <div class="form-group">
+                <input
+                  id="nombre-usuario"
+                  class="form-control input-modal"
+                  type="text"
+                  placeholder="Escribe tu nuevo usuario"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  id="pass-usuario"
+                  class="form-control input-modal"
+                  type="password"
+                  placeholder="Escribe tu contraseña"
+                />
+              </div>
+              <!-- <div class="invali">Example invalid feedback text</div> -->
+            </div>
+            <div class="modal-footer py-2">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button id="crear-usuario" type="button" class="btn btn-primary">
+                Crear usuario
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ------------------------------------------------------------------------------------------------------------------------------------------------ -->
+      <!-- modal de ingreso a sesion -->
+      <div
+        class="modal fade animated fadeIn"
+        id="ingreso"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header py-2">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Ingresa a tu sesion..
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="alerta-verificar-usuario"></div>
+              <div class="form-group">
+                <input
+                  id="usuario-verificar"
+                  class="form-control input-modal"
+                  type="text"
+                  placeholder="Escribe tu usuario"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  id="pass-usuario-verificar"
+                  class="form-control input-modal"
+                  type="password"
+                  placeholder="Escribe tu contraseña"
+                />
+              </div>
+            </div>
+            <div class="modal-footer py-2">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button
+                id="verificar-usuario"
+                type="button"
+                class="btn btn-primary"
+              >
+                Ingresar!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- seccion teacher ------------------------------------------------------------------------------------------------------------------ -->
+    <div id="seccion-board" class="d-none">
+      <nav
+        id="navbar"
+        class="navbar navbar-expand-lg navbar-light bg-light"
+        style="opacity: 0.75;"
+      >
+        <a
+          class="btn btn-light float-left name-user"
+          href="#"
+          data-toggle="modal"
+          data-target="#options"
+          ><b id="name-usuario"></b
+        ></a>
+            <img style="display: none;" id="img-result-board" class="img-result mx-auto d-none-c" src="img/cargando.gif" alt="" />
+
+            <span class="margin-compu float-right">Tu codigo: <span class="text-danger" id="codigo-usuario"></span
+        ></span>
+            <a class="navbar-brand ml-auto brand-navbar d-none-celular" href="#">Tablero Virtual</a
+        >
+      </nav>
+      <div class="container">
+        <textarea
+          autofocus="on"
+          id="contenido-board-usuario"
+          class="form-control input-modal board-user mt-2"
+        ></textarea>
+        <div class="mt-3 mb-3">
+          <span id="fecha-board-usuario" class="text-muted"></span>
+        </div>
+      </div>
+      <!-- modal de cambiar contraseña o salir -->
+      <div
+        class="modal fade"
+        id="options"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="editar-titulo" class="modal-title" id="exampleModalLabel">
+                Cerrar sesion
+              </h5>
+
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <span>¿Seguro quieres cerrar sesion?</span>
+            </div>
+            <div class="modal-footer">
+              <button
+                id="actualizar-usuario"
+                type="button"
+                class="btn btn-info"
+              >
+                Editar datos
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancelar
+              </button>
+
+              <button id="cerrar-sesion" type="button" class="btn btn-danger">
+                Si
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- modal de actualizar usuario -->
+      <!-- ------------------------------------------ -->
+      <div
+        class="modal fade"
+        id="update-user"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="editar-titulo" class="modal-title" id="exampleModalLabel">
+                Actualizar usuario
+              </h5>
+
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="alert-update-user"></div>
+
+              <div class="form-group">
+                <input
+                  id="nombre-usuario-actualizar"
+                  class="form-control input-modal"
+                  type="text"
+                  placeholder="Escribe tu nuevo usuario"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  id="pass-usuario-actualizar"
+                  class="form-control input-modal"
+                  type="password"
+                  placeholder="Escribe tu contraseña"
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button id="editar-usuario-z" type="button" class="btn btn-info">
+                Acualizar!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- fin seccion -->
+    </div>
+
+    <!-- seccion student or viewer -->
+    <!-- seccion teacher ------------------------------------------------------------------------------------------------------------------ -->
+    <div id="seccion-viewer" class="d-none">
+      <nav
+        id="navbar"
+        class="navbar navbar-expand-lg navbar-light bg-light"
+        style="opacity: 0.75;"
+      >
+        <a
+          id="regresar"
+          href="#"
+          class="text-decoration-none float-left name-user"
+          ><b>Atras</b></a
+        >
+        <img
+          style="display: none;"
+          id="img-result-viewer"
+          class="img-result mx-auto d-none-c"
+          src="img/cargando.gif"
+          alt=""
+        />
+
+        <span class="margin-compu float-right"
+          >Codigo: <span class="text-danger" id="codigo-recibe"></span
+        ></span>
+        <a class="navbar-brand ml-auto brand-navbar d-none-celular" href="#"
+          >Tablero Virtual</a
+        >
+      </nav>
+      <div class="container">
+        <textarea
+          id="tablero-recibe"
+          disabled
+          class="ver-tablero form-control input-modal mt-2"
+        ></textarea>
+        <div class="mt-3 mb-3">
+          <span id="fecha-recibe" class="text-dark"></span>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>
