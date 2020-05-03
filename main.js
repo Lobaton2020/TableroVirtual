@@ -34,6 +34,7 @@ var passActualizar = document.getElementById("pass-usuario-actualizar");
 var usuarioActualizar = document.getElementById("nombre-usuario-actualizar");
 var alertusuarioActualizar = document.getElementById("alert-update-user");
 
+var interval;
 var usuario = "";
 var contador = 0;
 var identificacion = "";
@@ -108,7 +109,7 @@ window.addEventListener("load", function() {
 
     validarPin.addEventListener("click", function() {
         var pin = pinIngreso.value;
-        setInterval(function() {
+        interval = setInterval(function() {
             datosRecibeServidor(pin);
         }, 1000);
     });
@@ -260,6 +261,7 @@ function procesoRecibidaDatos() {
                 seccionViewer.className = "d-none";
                 body.style.background = "#20bf6b";
                 localdb.clear();
+                clearInterval(interval);
             }
         }
     }

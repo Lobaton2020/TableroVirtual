@@ -12,8 +12,4 @@ fechatablero datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 primary key(idtablero)
 );
 
-INSERT INTO `tablero` (`idtablero`, `contenidotablero`, `usuario`, `identificacion`, `fechatablero`) 
-                VALUES ('1', 'Bienvenido','juan', '001110', current_timestamp());
-                
-truncate table tablero;
-select * from tablero;                
+         
